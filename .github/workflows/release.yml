@@ -2,10 +2,15 @@ name: Examples Release Manager
 
 on:
   # ignore for now, how would open source get  eamHubSpec/tested versions? would we make this a single input where you paste json, multiple with versions?
-  # workflow_dispatch:
+  workflow_dispatch:
+    inputs:
+      versionFileJSON:
+          description: 'The file with all the versions' 
+          required: true
+          type: string
 
-  repository_dispatch:
-    types: [release-trigger]
+  # repository_dispatch:
+  #   types: [release-trigger]
 
 env:
   # Variables to control GH CLI
@@ -23,7 +28,7 @@ jobs:
       - name: Create Tested Versions File
         run: |
           mkdir $RUNNER_TEMP/version_file && cd $RUNNER_TEMP/version_file
-          echo -e "${{ github.event.client_payload.versionJSON }}" > openhorizon-tested-versions.txt
+          echo -e "${{ github.event.inputs.versionFileJSON }}" > openhorizon-tested-versions.txt
         shell: bash
       
       - name: Create Release
@@ -34,4 +39,4 @@ jobs:
             --target 6d8c2cdff52dd519cb4e453f3a6c63186a6ba2d7
         shell: bash
         env:
-          AGBOT_VERSION: ${{ fromJSON(github.event.client_payload.versionJSON).amd64_agbot }}
+          AGBOT_VERSION: ${{ fromJSON(github.event.inputs.versionFileJSON).amd64_agbot }}
