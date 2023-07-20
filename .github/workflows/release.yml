@@ -8,9 +8,6 @@ on:
           description: 'The file with all the versions' 
           required: true
           type: string
-  push:
-    branches:
-      - dev-release-mgmt
 
   # repository_dispatch:
   #   types: [release-trigger]
