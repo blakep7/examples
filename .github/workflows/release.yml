@@ -33,10 +33,7 @@ jobs:
       
       - name: Create Release
         run: |
-          gh release create v${AGBOT_VERSION} \
-            ${RUNNER_TEMP}/version_file/openhorizon-tested-versions.txt \
-            -t "v${AGBOT_VERSION}" \
-            --target 6d8c2cdff52dd519cb4e453f3a6c63186a6ba2d7
+          echo "TEST"
         shell: bash
         env:
           AGBOT_VERSION: ${{ fromJSON(github.event.inputs.versionFileJSON).amd64_agbot }}
