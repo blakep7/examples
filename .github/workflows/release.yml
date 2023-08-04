@@ -30,7 +30,7 @@ jobs:
           mkdir $RUNNER_TEMP/version_file && cd $RUNNER_TEMP/version_file
           echo -e "${{ github.event.inputs.versionFileJSON }}" > openhorizon-tested-versions.txt
         shell: bash
-      
+      asd
       - name: Create Release
         run: |
           gh release create v${AGBOT_VERSION} \
