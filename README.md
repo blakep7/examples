@@ -1,7 +1,7 @@
 ![open-horizon-logo](image/open-horizon-color.png)
 
 # Getting Started
-
+aaa
 ## Documentation
 
 **Open Horizon documentation repository coming soon!** For the time being, you can learn more about [Open Horizon here](https://www.ibm.com/support/knowledgecenter/SSFKVV_4.2/kc_welcome_containers.html).
